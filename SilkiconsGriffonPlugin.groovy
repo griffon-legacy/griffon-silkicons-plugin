@@ -1,5 +1,5 @@
 /*
- * Copyright 2010 the original author or authors.
+ * Copyright 2010-2012 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,31 +19,53 @@
  */
 class SilkiconsGriffonPlugin {
     // the plugin version
-    def version = "0.2"
+    String version = '0.3'
     // the version or versions of Griffon the plugin is designed for
-    def griffonVersion = '0.9.2 > *' 
+    String griffonVersion = '0.9.5 > *'
     // the other plugins this plugin depends on
-    def dependsOn = [:]
+    Map dependsOn = [swing: '0.9.5']
     // resources that are included in plugin packaging
-    def pluginIncludes = []
+    List pluginIncludes = []
     // the plugin license
-    def license = 'Apache Software License 2.0'
+    String license = 'Apache Software License 2.0'
     // Toolkit compatibility. No value means compatible with all
     // Valid values are: swing, javafx, swt, pivot, gtk
-    def toolkits = []
+    List toolkits = ['swing']
     // Platform compatibility. No value means compatible with all
     // Valid values are:
     // linux, linux64, windows, windows64, macosx, macosx64, solaris
-    def platforms = []
+    List platforms = []
+    // URL where documentation can be found
+    String documentation = ''
+    // URL where source can be found
+    String source = 'https://github.com/griffon/griffon-silkicons-plugin'
 
-    def author = 'Andres Almiray'
-    def authorEmail = 'aalmiray@users.sourceforge.net'
-    def title = 'FamFamFam\'s Silk icon set'
-    def description = '''
-FamFamFam's Silk icon set.
-http://www.famfamfam.com/lab/icons/silk/
+    List authors = [
+        [
+            name: 'Andres Almiray',
+            email: 'aalmiray@yahoo.com'
+        ]
+    ]
+    String title = "Marc James' Silk icon set"
+    String description = '''
+Provides a shortcut for adding icons based on Marc James' [Silk icon set][1].
+
+Usage
+-----
+
+The following nodes will become available on a View script upon installing this plugin
+
+| *Node*   | *Property* | *Type* | *Default*   | *Bindable* |
+| -------- | ---------- | ------ | ----------- | ---------- |
+| silkIcon | icon       | String |             | no         |
+
+Valid values for `icon` can be obtained by running **silk-icon-selector** and inspecting the tooltip of the chosen icon.
+
+Scripts
+-------
+
+ * **silk-icon-selector** - launches a window that displays all available icons (Hover an icon to see the icon name)
+
+[1]: http://www.famfamfam.com/lab/icons/silk/
 '''
-
-    // URL to the plugin's documentation
-    def documentation = 'http://griffon.codehaus.org/Silkicons+Plugin'
 }
